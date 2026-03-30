@@ -1,0 +1,20 @@
+[
+  {
+    "id": "coxinha",
+    "nome": "Coxinha",
+    "preco": 6.00,
+    "imagem": "images/produtos/coxinha.png"
+  },
+  {
+    "id": "pastel-frango",
+    "nome": "Pastel de Frango",
+    "preco": 7.50,
+    "imagem": "images/produtos/pastel-frango.png"
+  },
+  {
+    "id": "mini-pizza",
+    "nome": "Mini Pizza",
+    "preco": 8.00,
+    "imagem": "images/produtos/mini-pizza.png"
+  }
+]
