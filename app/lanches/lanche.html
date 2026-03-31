@@ -11,6 +11,9 @@ body{
   margin:0;
   font-family:Arial;
   background:#f4f4f4;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
 }
 
 header{
@@ -21,15 +24,30 @@ header{
   font-size:20px;
 }
 
+/* CENTRALIZAÇÃO */
 .container{
-  padding:20px;
+  flex:1;
   display:flex;
-  gap:20px;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+}
+
+.produto-box{
+  display:flex;
+  gap:30px;
+  align-items:center;
+  background:white;
+  padding:25px;
+  border-radius:14px;
+  box-shadow:0 4px 15px rgba(0,0,0,.15);
+  max-width:900px;
+  width:100%;
   flex-wrap:wrap;
 }
 
 img{
-  width:300px;
+  width:320px;
   max-width:100%;
   border-radius:10px;
 }
@@ -53,16 +71,16 @@ img{
   display:flex;
   align-items:center;
   gap:15px;
-  margin:15px 0;
+  margin:20px 0;
 }
 
 .qtd-btn{
   width:40px;
   height:40px;
-  font-size:20px;
   border:none;
   background:#d60000;
   color:white;
+  font-size:20px;
   border-radius:8px;
   cursor:pointer;
 }
@@ -78,7 +96,7 @@ img{
   color:white;
   border:none;
   padding:14px;
-  width:200px;
+  width:220px;
   border-radius:10px;
   font-size:16px;
   cursor:pointer;
@@ -93,21 +111,25 @@ img{
 
 <div class="container">
 
-  <img id="imagem">
+  <div class="produto-box">
 
-  <div class="info">
-    <div id="nome" class="nome"></div>
-    <div id="preco" class="preco"></div>
+    <img id="imagem">
 
-    <div class="quantidade">
-      <button class="qtd-btn" onclick="menos()">-</button>
-      <div id="qtd">1</div>
-      <button class="qtd-btn" onclick="mais()">+</button>
+    <div class="info">
+      <div id="nome" class="nome"></div>
+      <div id="preco" class="preco"></div>
+
+      <div class="quantidade">
+        <button class="qtd-btn" onclick="menos()">-</button>
+        <div id="qtd">1</div>
+        <button class="qtd-btn" onclick="mais()">+</button>
+      </div>
+
+      <button class="comprar"
+        onclick="alert('Funcionalidade ainda será criada!')">
+        Finalizar Pedido
+      </button>
     </div>
-
-    <button class="comprar" onclick="alert('Funcionalidade ainda será criada!')">
-      Finalizar Pedido
-    </button>
 
   </div>
 
@@ -119,37 +141,37 @@ const param = decodeURIComponent(
   location.search.split(":")[1]
 );
 
-let precoBase = 0;
-let quantidade = 1;
+let precoBase=0;
+let quantidade=1;
 
 fetch("../produtos.json")
-.then(res => res.json())
-.then(produtos => {
+.then(r=>r.json())
+.then(produtos=>{
 
-  const produto = produtos.find(p => p.id === param);
+  const produto=produtos.find(p=>p.id===param);
 
-  document.getElementById("imagem").src = "../" + produto.imagem;
-  document.getElementById("nome").textContent = produto.nome;
+  document.getElementById("imagem").src="../"+produto.imagem;
+  document.getElementById("nome").textContent=produto.nome;
 
-  precoBase = produto.preco;
+  precoBase=produto.preco;
   atualizarPreco();
 });
 
 function atualizarPreco(){
   document.getElementById("preco")
-    .textContent = "R$ " + (precoBase * quantidade).toFixed(2);
+    .textContent="R$ "+(precoBase*quantidade).toFixed(2);
 }
 
 function mais(){
   quantidade++;
-  document.getElementById("qtd").textContent = quantidade;
+  document.getElementById("qtd").textContent=quantidade;
   atualizarPreco();
 }
 
 function menos(){
-  if(quantidade > 1){
+  if(quantidade>1){
     quantidade--;
-    document.getElementById("qtd").textContent = quantidade;
+    document.getElementById("qtd").textContent=quantidade;
     atualizarPreco();
   }
 }
