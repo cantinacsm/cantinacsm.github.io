@@ -155,8 +155,15 @@ img{
 
 <body>
 
-<link rel="stylesheet" href="https://cantinacsm.github.io/components/bmc.css">
-<script src="https://cantinacsm.github.io/components/bmc.js" defer></script>
+<div id="bmc-load"></div>
+
+<script>
+fetch("https://cantinacsm.github.io/components/bmc.html")
+  .then(r => r.text())
+  .then(html => {
+    document.getElementById("bmc-load").innerHTML = html;
+  });
+</script>
   
 <header>
   <a class="voltar" href="https://cantinacsm.github.io">←</a>
