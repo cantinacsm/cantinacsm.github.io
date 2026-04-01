@@ -1,0 +1,11 @@
+#bmc-container{
+  position:fixed;
+  z-index:9999;
+}
+
+/* esconder no mobile (opcional) */
+@media (max-width:700px){
+  #bmc-container{
+    display:none;
+  }
+}
