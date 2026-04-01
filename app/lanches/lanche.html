@@ -16,23 +16,44 @@ body{
   flex-direction:column;
 }
 
+/* ===== HEADER ===== */
 header{
   background:#d60000;
   color:white;
-  text-align:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
   padding:15px;
   font-size:20px;
 }
 
-/* CENTRALIZAÇÃO */
+/* botão voltar */
+.voltar{
+  position:absolute;
+  left:15px;
+  font-size:22px;
+  cursor:pointer;
+  text-decoration:none;
+  color:white;
+}
+
+/* titulo clicável */
+.titulo{
+  cursor:pointer;
+  font-weight:bold;
+}
+
+/* ===== CENTRALIZAÇÃO (MEIO EM CIMA) ===== */
 .container{
   flex:1;
   display:flex;
   justify-content:center;
-  align-items:center;
-  padding:20px;
+  align-items:flex-start; /* fica no meio horizontal e em cima vertical */
+  padding:30px 20px;
 }
 
+/* ===== CARD ===== */
 .produto-box{
   display:flex;
   gap:30px;
@@ -43,17 +64,20 @@ header{
   box-shadow:0 4px 15px rgba(0,0,0,.15);
   max-width:900px;
   width:100%;
-  flex-wrap:wrap;
 }
 
+/* imagem desktop */
 img{
   width:320px;
   max-width:100%;
   border-radius:10px;
 }
 
+/* info */
 .info{
   flex:1;
+  display:flex;
+  flex-direction:column;
 }
 
 .nome{
@@ -100,6 +124,30 @@ img{
   border-radius:10px;
   font-size:16px;
   cursor:pointer;
+  margin-top:auto; /* botão sempre por último */
+}
+
+/* ===== MOBILE ===== */
+@media (max-width:700px){
+
+  .produto-box{
+    flex-direction:column; /* imagem em cima */
+    text-align:center;
+  }
+
+  img{
+    width:100%;
+    max-width:350px;
+  }
+
+  .info{
+    width:100%;
+    align-items:center;
+  }
+
+  .comprar{
+    width:100%;
+  }
 }
 
 </style>
@@ -107,7 +155,14 @@ img{
 
 <body>
 
-<header>Cantina APP</header>
+<header>
+  <a class="voltar" href="https://cantinacsm.github.io">←</a>
+
+  <div class="titulo"
+       onclick="location.href='https://cantinacsm.github.io/app/index.html'">
+       Cantina APP
+  </div>
+</header>
 
 <div class="container">
 
@@ -137,41 +192,44 @@ img{
 
 <script>
 
+/* ===== PEGAR PARAMETRO ===== */
 const param = decodeURIComponent(
   location.search.split(":")[1]
 );
 
-let precoBase=0;
-let quantidade=1;
+let precoBase = 0;
+let quantidade = 1;
 
 fetch("../produtos.json")
-.then(r=>r.json())
-.then(produtos=>{
+.then(r => r.json())
+.then(produtos => {
 
-  const produto=produtos.find(p=>p.id===param);
+  const produto = produtos.find(p => p.id === param);
 
-  document.getElementById("imagem").src="../"+produto.imagem;
-  document.getElementById("nome").textContent=produto.nome;
+  document.getElementById("imagem").src = "../" + produto.imagem;
+  document.getElementById("nome").textContent = produto.nome;
 
-  precoBase=produto.preco;
+  precoBase = produto.preco;
   atualizarPreco();
 });
 
+/* ===== PREÇO ===== */
 function atualizarPreco(){
   document.getElementById("preco")
-    .textContent="R$ "+(precoBase*quantidade).toFixed(2);
+    .textContent = "R$ " + (precoBase * quantidade).toFixed(2);
 }
 
+/* ===== QUANTIDADE ===== */
 function mais(){
   quantidade++;
-  document.getElementById("qtd").textContent=quantidade;
+  document.getElementById("qtd").textContent = quantidade;
   atualizarPreco();
 }
 
 function menos(){
-  if(quantidade>1){
+  if(quantidade > 1){
     quantidade--;
-    document.getElementById("qtd").textContent=quantidade;
+    document.getElementById("qtd").textContent = quantidade;
     atualizarPreco();
   }
 }
