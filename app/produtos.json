@@ -3,18 +3,72 @@
     "id": "coxinha",
     "nome": "Coxinha",
     "preco": 6.00,
-    "imagem": "images/produtos/coxinha.png"
+    "imagem": "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d"
   },
   {
     "id": "pastel-frango",
     "nome": "Pastel de Frango",
     "preco": 7.50,
-    "imagem": "images/produtos/pastel-frango.png"
+    "imagem": "https://images.unsplash.com/photo-1625944525903-c4c7c2b7e8f5"
   },
   {
     "id": "mini-pizza",
     "nome": "Mini Pizza",
     "preco": 8.00,
-    "imagem": "images/produtos/mini-pizza.png"
+    "imagem": "https://images.unsplash.com/photo-1594007654729-407eedc4be65"
+  },
+  {
+    "id": "hamburguer",
+    "nome": "Hambúrguer",
+    "preco": 12.00,
+    "imagem": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd"
+  },
+  {
+    "id": "x-salada",
+    "nome": "X-Salada",
+    "preco": 14.00,
+    "imagem": "https://images.unsplash.com/photo-1550547660-d9450f859349"
+  },
+  {
+    "id": "cachorro-quente",
+    "nome": "Cachorro-Quente",
+    "preco": 10.00,
+    "imagem": "https://images.unsplash.com/photo-1612392062631-94dd858c0d1c"
+  },
+  {
+    "id": "pao-queijo",
+    "nome": "Pão de Queijo",
+    "preco": 5.00,
+    "imagem": "https://images.unsplash.com/photo-1585238342024-78d387f4a707"
+  },
+  {
+    "id": "empada-frango",
+    "nome": "Empada de Frango",
+    "preco": 6.50,
+    "imagem": "https://images.unsplash.com/photo-1601050690597-df0568f70950"
+  },
+  {
+    "id": "bolo-chocolate",
+    "nome": "Bolo de Chocolate",
+    "preco": 7.00,
+    "imagem": "https://images.unsplash.com/photo-1578985545062-69928b1d9587"
+  },
+  {
+    "id": "brigadeiro",
+    "nome": "Brigadeiro",
+    "preco": 3.00,
+    "imagem": "https://images.unsplash.com/photo-1625944525125-4f8c1c58ddc3"
+  },
+  {
+    "id": "suco-laranja",
+    "nome": "Suco de Laranja",
+    "preco": 6.00,
+    "imagem": "https://images.unsplash.com/photo-1600271886742-f049cd451bba"
+  },
+  {
+    "id": "refrigerante-lata",
+    "nome": "Refrigerante Lata",
+    "preco": 5.50,
+    "imagem": "https://images.unsplash.com/photo-1581636625402-29b2a704ef13"
   }
 ]
