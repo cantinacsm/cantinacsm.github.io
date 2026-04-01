@@ -206,7 +206,7 @@ fetch("../produtos.json")
 
   const produto = produtos.find(p => p.id === param);
 
-  document.getElementById("imagem").src = "../" + produto.imagem;
+  document.getElementById("imagem").src = produto.imagem;
   document.getElementById("nome").textContent = produto.nome;
 
   precoBase = produto.preco;
