@@ -2,73 +2,97 @@
   {
     "id": "coxinha",
     "nome": "Coxinha",
+    "descricao": "Salgado crocante recheado com frango temperado",
     "preco": 6.00,
+    "categoria": "salgados",
     "imagem": "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=600&q=80"
   },
   {
     "id": "pastel-frango",
     "nome": "Pastel de Frango",
+    "descricao": "Pastel frito com recheio de frango suculento",
     "preco": 7.50,
+    "categoria": "salgados",
     "imagem": "https://images.unsplash.com/photo-1625944525903-c4c7c2b7e8f5?auto=format&fit=crop&w=600&q=80"
   },
   {
     "id": "mini-pizza",
     "nome": "Mini Pizza",
+    "descricao": "Mini pizza com queijo derretido e molho especial",
     "preco": 8.00,
+    "categoria": "salgados",
     "imagem": "https://images.unsplash.com/photo-1594007654729-407eedc4be65?auto=format&fit=crop&w=600&q=80"
   },
   {
     "id": "hamburguer",
     "nome": "Hambúrguer",
+    "descricao": "Hambúrguer clássico com carne e queijo",
     "preco": 12.00,
+    "categoria": "lanches",
     "imagem": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80"
   },
   {
     "id": "x-salada",
     "nome": "X-Salada",
+    "descricao": "Hambúrguer com alface, tomate e queijo",
     "preco": 14.00,
+    "categoria": "lanches",
     "imagem": "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80"
   },
   {
     "id": "cachorro-quente",
     "nome": "Cachorro-Quente",
+    "descricao": "Pão com salsicha, molho e acompanhamentos",
     "preco": 10.00,
+    "categoria": "lanches",
     "imagem": "https://images.unsplash.com/photo-1612392062631-94dd858c0d1c?auto=format&fit=crop&w=600&q=80"
   },
   {
-    "id": "pao-queijo",
+    "id": "pao-de-queijo",
     "nome": "Pão de Queijo",
+    "descricao": "Bolinhas assadas com queijo mineiro",
     "preco": 5.00,
+    "categoria": "salgados",
     "imagem": "https://images.unsplash.com/photo-1585238342024-78d387f4a707?auto=format&fit=crop&w=600&q=80"
   },
   {
     "id": "empada-frango",
     "nome": "Empada de Frango",
+    "descricao": "Empada cremosa recheada com frango",
     "preco": 6.50,
+    "categoria": "salgados",
     "imagem": "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=600&q=80"
   },
   {
     "id": "bolo-chocolate",
     "nome": "Bolo de Chocolate",
+    "descricao": "Fatia de bolo com cobertura de chocolate",
     "preco": 7.00,
+    "categoria": "doces",
     "imagem": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80"
   },
   {
     "id": "brigadeiro",
     "nome": "Brigadeiro",
+    "descricao": "Doce tradicional brasileiro de chocolate",
     "preco": 3.00,
+    "categoria": "doces",
     "imagem": "https://images.unsplash.com/photo-1625944525125-4f8c1c58ddc3?auto=format&fit=crop&w=600&q=80"
   },
   {
     "id": "suco-laranja",
     "nome": "Suco de Laranja",
+    "descricao": "Suco natural de laranja fresco",
     "preco": 6.00,
+    "categoria": "bebidas",
     "imagem": "https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=600&q=80"
   },
   {
     "id": "refrigerante-lata",
     "nome": "Refrigerante Lata",
+    "descricao": "Refrigerante gelado em lata",
     "preco": 5.50,
+    "categoria": "bebidas",
     "imagem": "https://images.unsplash.com/photo-1581636625402-29b2a704ef13?auto=format&fit=crop&w=600&q=80"
   }
 ]
