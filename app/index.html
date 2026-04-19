@@ -7,10 +7,26 @@
 
 <style>
 
+:root{
+  --body-bg:#f4f4f4;
+  --header-bg:#d60000;
+  --header-text:#ffffff;
+  --footer-bg:#111111;
+  --footer-text:#ffffff;
+  --accent:#d60000;
+  --accent-text:#ffffff;
+  --card-bg:#ffffff;
+  --card-text:#141414;
+  --muted-text:#4b4b4b;
+  --shadow:rgba(0,0,0,.12);
+  --link:#ff4d4d;
+}
+
 body{
   margin:0;
   font-family:Arial, Helvetica, sans-serif;
-  background:#f4f4f4;
+  background:var(--body-bg);
+  color:var(--card-text);
   min-height:100vh;
   display:flex;
   flex-direction:column;
@@ -18,8 +34,8 @@ body{
 
 /* HEADER */
 header{
-  background:#d60000;
-  color:white;
+  background:var(--header-bg);
+  color:var(--header-text);
   padding:18px;
   text-align:center;
   font-size:22px;
@@ -55,9 +71,9 @@ main{
 
 /* CARD MENOR */
 .card{
-  background:white;
+  background:var(--card-bg);
   border-radius:12px;
-  box-shadow:0 2px 6px rgba(0,0,0,.12);
+  box-shadow:0 2px 8px var(--shadow);
   overflow:hidden;
 }
 
@@ -77,15 +93,15 @@ main{
 }
 
 .preco{
-  color:#d60000;
+  color:var(--accent);
   margin:6px 0;
 }
 
 button{
   width:100%;
   border:none;
-  background:#d60000;
-  color:white;
+  background:var(--accent);
+  color:var(--accent-text);
   padding:10px;
   border-radius:8px;
   cursor:pointer;
@@ -93,14 +109,14 @@ button{
 
 /* FOOTER FIXO */
 footer{
-  background:#111;
-  color:white;
+  background:var(--footer-bg);
+  color:var(--footer-text);
   text-align:center;
   padding:14px;
 }
 
 footer a{
-  color:#ff4d4d;
+  color:var(--link);
   text-decoration:none;
   font-weight:bold;
 }
@@ -109,7 +125,7 @@ footer a{
 </head>
 
 <body>
-  
+
 <header>Cantina APP</header>
 
 <main>
@@ -121,6 +137,38 @@ Desenvolvedor: ViquinhoDev ( Vicente Bajay )
 </footer>
 
 <script>
+async function carregarTema(){
+  try{
+    const cfgResponse = await fetch("styles/theme-config.json");
+    const cfg = await cfgResponse.json();
+
+    const temaAtivo = cfg.activeTheme || "default-theme.json";
+    const temaResponse = await fetch(`styles/${temaAtivo}`);
+    const tema = await temaResponse.json();
+
+    aplicarTema(tema.colors || {});
+  }catch(err){
+    console.warn("Não foi possível carregar o tema por JSON. Mantendo padrão.", err);
+  }
+}
+
+function aplicarTema(colors){
+  const root = document.documentElement;
+  root.style.setProperty("--body-bg", colors.bodyBg || "#f4f4f4");
+  root.style.setProperty("--header-bg", colors.headerBg || "#d60000");
+  root.style.setProperty("--header-text", colors.headerText || "#ffffff");
+  root.style.setProperty("--footer-bg", colors.footerBg || "#111111");
+  root.style.setProperty("--footer-text", colors.footerText || "#ffffff");
+  root.style.setProperty("--accent", colors.accent || "#d60000");
+  root.style.setProperty("--accent-text", colors.accentText || "#ffffff");
+  root.style.setProperty("--card-bg", colors.cardBg || "#ffffff");
+  root.style.setProperty("--card-text", colors.cardText || "#141414");
+  root.style.setProperty("--muted-text", colors.mutedText || "#4b4b4b");
+  root.style.setProperty("--shadow", colors.shadow || "rgba(0,0,0,.12)");
+  root.style.setProperty("--link", colors.link || "#ff4d4d");
+}
+
+carregarTema();
 
 fetch("produtos.json")
 .then(r=>r.json())
@@ -132,7 +180,7 @@ fetch("produtos.json")
 
     area.innerHTML+=`
       <div class="card">
-        <img src="${p.imagem}">
+        <img src="${p.imagem}" alt="${p.nome}">
         <div class="card-content">
           <div class="nome">${p.nome}</div>
           <div class="preco">R$ ${p.preco.toFixed(2)}</div>
