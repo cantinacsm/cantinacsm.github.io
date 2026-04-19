@@ -1,0 +1,17 @@
+{
+  "name": "Tema Escuro",
+  "colors": {
+    "bodyBg": "#0f1115",
+    "headerBg": "#141824",
+    "headerText": "#f3f5ff",
+    "footerBg": "#0a0d14",
+    "footerText": "#cfd7ff",
+    "accent": "#7a5cff",
+    "accentText": "#f8f7ff",
+    "cardBg": "#1b2030",
+    "cardText": "#edf1ff",
+    "mutedText": "#aeb8dd",
+    "shadow": "rgba(0, 0, 0, 0.45)",
+    "link": "#8ec5ff"
+  }
+}
