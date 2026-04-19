@@ -1,1 +1,17 @@
-
+{
+  "name": "Tema Branco (Padrão)",
+  "colors": {
+    "bodyBg": "#f4f4f4",
+    "headerBg": "#d60000",
+    "headerText": "#ffffff",
+    "footerBg": "#111111",
+    "footerText": "#ffffff",
+    "accent": "#d60000",
+    "accentText": "#ffffff",
+    "cardBg": "#ffffff",
+    "cardText": "#141414",
+    "mutedText": "#4b4b4b",
+    "shadow": "rgba(0, 0, 0, 0.12)",
+    "link": "#ff4d4d"
+  }
+}
