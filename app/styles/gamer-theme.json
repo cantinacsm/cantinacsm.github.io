@@ -1,0 +1,17 @@
+{
+  "name": "Tema Gamer LED",
+  "colors": {
+    "bodyBg": "#07060f",
+    "headerBg": "#130023",
+    "headerText": "#f5f1ff",
+    "footerBg": "#080011",
+    "footerText": "#cfe8ff",
+    "accent": "#00e5ff",
+    "accentText": "#06101b",
+    "cardBg": "#130c24",
+    "cardText": "#f7f3ff",
+    "mutedText": "#b79dff",
+    "shadow": "rgba(0, 229, 255, 0.3)",
+    "link": "#ff4df0"
+  }
+}
