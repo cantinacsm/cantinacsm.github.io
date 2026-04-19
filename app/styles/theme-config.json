@@ -1,0 +1,9 @@
+{
+  "activeTheme": "default-theme.json",
+  "availableThemes": [
+    "default-theme.json",
+    "dark-theme.json",
+    "gamer-theme.json"
+  ],
+  "note": "Para trocar o tema, altere somente o campo activeTheme para um dos temas listados."
+}
