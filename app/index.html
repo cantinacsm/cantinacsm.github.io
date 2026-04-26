@@ -188,34 +188,19 @@ function estaNoApp(){
   );
 }
 
-function dispositivoAceitaApk(){
-  const ua = (navigator.userAgent || "").toLowerCase();
-  return ua.includes("android");
-}
-
-async function configurarBotaoApk(){
+function configurarBotaoApk(){
   const botaoApk = document.getElementById("apkDownloadButton");
   if(!botaoApk){
     return;
   }
 
-  if(estaNoApp() || !dispositivoAceitaApk()){
-    botaoApk.style.display = "none";
-    return;
-  }
-
-  try{
-    const resposta = await fetch(botaoApk.getAttribute("href"), { method:"HEAD" });
-    if(!resposta.ok){
-      botaoApk.style.display = "none";
-      return;
-    }
-  }catch(_erro){
+  if(estaNoApp()){
     botaoApk.style.display = "none";
   }
 }
 
 configurarBotaoApk();
+
 
   
 function aplicarTema(colors){
