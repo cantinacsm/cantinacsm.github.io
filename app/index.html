@@ -120,6 +120,23 @@ footer a{
   text-decoration:none;
   font-weight:bold;
 }
+  .footer-content{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  align-items:center;
+}
+
+.apk-button{
+  display:inline-block;
+  background:var(--accent);
+  color:var(--accent-text);
+  text-decoration:none;
+  font-weight:bold;
+  padding:10px 14px;
+  border-radius:8px;
+}
+
 
 </style>
 </head>
@@ -133,7 +150,12 @@ footer a{
 </main>
 
 <footer>
-Desenvolvedor: ViquinhoDev ( Vicente Bajay )
+  <div class="footer-content">
+    <a id="apkDownloadButton" class="apk-button" href="cantinaAPP.apk" download>
+      Baixar .APK (CantinaAPP)
+    </a>
+    <div>Desenvolvedor: ViquinhoDev ( Vicente Bajay )</div>
+  </div>
 </footer>
 
 <script>
@@ -151,7 +173,28 @@ async function carregarTema(){
     console.warn("Não foi possível carregar o tema por JSON. Mantendo padrão.", err);
   }
 }
+  
+function estaNoApp(){
+  const ua = navigator.userAgent || "";
+  const modoStandalone = window.matchMedia("(display-mode: standalone)").matches;
+  const appReferrer = document.referrer.startsWith("android-app://");
 
+  return (
+    modoStandalone ||
+    appReferrer ||
+    ua.includes("; wv") ||
+    ua.toLowerCase().includes("webview") ||
+    ua.toLowerCase().includes("cantinaapp")
+  );
+}
+
+if(estaNoApp()){
+  const botaoApk = document.getElementById("apkDownloadButton");
+  if(botaoApk){
+    botaoApk.style.display = "none";
+  }
+}
+  
 function aplicarTema(colors){
   const root = document.documentElement;
   root.style.setProperty("--body-bg", colors.bodyBg || "#f4f4f4");
