@@ -173,13 +173,19 @@ async function carregarTema(){
     console.warn("Não foi possível carregar o tema por JSON. Mantendo padrão.", err);
   }
 }
+  // Funções do botão Download .APK
   
 function estaNoApp(){
   const ua = navigator.userAgent || "";
   const modoStandalone = window.matchMedia("(display-mode: standalone)").matches;
   const appReferrer = document.referrer.startsWith("android-app://");
+  const params = new URLSearchParams(window.location.search);
+  const modoAppForcado = params.get("app") === "67"; // esconder botão de download .apk se tiver ?app=67
+  const executandoArquivoLocal = window.location.protocol === "file:";
 
   return (
+    modoAppForcado ||
+    executandoArquivoLocal ||
     modoStandalone ||
     appReferrer ||
     ua.includes("; wv") ||
@@ -200,6 +206,7 @@ function configurarBotaoApk(){
 }
 
 configurarBotaoApk();
+
 
 
   
