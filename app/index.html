@@ -128,7 +128,7 @@ footer a{
 }
 
 .apk-button{
-  display:inline-block;
+  display:none;
   background:var(--accent);
   color:var(--accent-text);
   text-decoration:none;
@@ -175,23 +175,24 @@ async function carregarTema(){
 }
   // Funções do botão Download .APK
   
-function estaNoApp(){
+function ehAndroid(){
   const ua = navigator.userAgent || "";
-  const modoStandalone = window.matchMedia("(display-mode: standalone)").matches;
-  const appReferrer = document.referrer.startsWith("android-app://");
-  const params = new URLSearchParams(window.location.search);
-  const modoAppForcado = params.get("app") === "67"; // esconder botão de download .apk se tiver ?app=67
-  const executandoArquivoLocal = window.location.protocol === "file:";
+  return /Android/i.test(ua);
+}
 
-  return (
-    modoAppForcado ||
-    executandoArquivoLocal ||
-    modoStandalone ||
-    appReferrer ||
-    ua.includes("; wv") ||
-    ua.toLowerCase().includes("webview") ||
-    ua.toLowerCase().includes("cantinaapp")
-  );
+function temParametroApp67(){
+  const params = new URLSearchParams(window.location.search);
+  return params.get("app") === "67" || window.location.search.includes("app-67");
+}
+
+function redirecionarAndroidParaApp67(){
+  if(!ehAndroid() || temParametroApp67()){
+    return;
+  }
+
+  const urlAtual = new URL(window.location.href);
+  urlAtual.searchParams.set("app", "67");
+  window.location.replace(urlAtual.toString());
 }
 
 function configurarBotaoApk(){
@@ -200,11 +201,12 @@ function configurarBotaoApk(){
     return;
   }
 
-  if(estaNoApp()){
-    botaoApk.style.display = "none";
+  if(ehAndroid() && temParametroApp67()){
+    botaoApk.style.display = "inline-block";
   }
 }
 
+redirecionarAndroidParaApp67();
 configurarBotaoApk();
 
 
