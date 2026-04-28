@@ -120,23 +120,48 @@ footer a{
   text-decoration:none;
   font-weight:bold;
 }
-  .footer-content{
+
+.footer-content{
   display:flex;
   flex-direction:column;
   gap:10px;
+  align-items:flex-start;
+  padding-left:30px;
+}
+
+.social-media{
+  display:flex;
+  gap:15px;
+  margin-top:5px;
+}
+
+.social-media a{
+  display:flex;
   align-items:center;
-}
-
-.apk-button{
-  display:none;
+  justify-content:center;
+  width:36px;
+  height:36px;
+  border-radius:50%;
   background:var(--accent);
-  color:var(--accent-text);
-  text-decoration:none;
-  font-weight:bold;
-  padding:10px 14px;
-  border-radius:8px;
+  transition:opacity 0.3s;
 }
 
+.social-media a:hover{
+  opacity:0.8;
+}
+
+.social-media img{
+  width:20px;
+  height:20px;
+  filter:invert(1);
+}
+
+.social-media .perfil-img{
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  object-fit:cover;
+}
 
 </style>
 </head>
@@ -146,15 +171,15 @@ footer a{
 <header>Cantina APP</header>
 
 <main>
+<p style="text-align:left; padding:15px; padding-left:30px; font-size:18px;">Escolha um produto abaixo:</p>
 <div id="produtos"></div>
 </main>
 
 <footer>
   <div class="footer-content">
-    <a id="apkDownloadButton" class="apk-button" href="cantinaAPP.apk" download>
-      Baixar .APK (CantinaAPP)
-    </a>
-    <div>Desenvolvedor: ViquinhoDev ( Vicente Bajay )</div>
+    <div>Desenvolvedor: ViquinhoDev</div>
+    <div id="copyright"></div>
+    <div id="redes-sociais" class="social-media"></div>
   </div>
 </footer>
 
@@ -173,45 +198,7 @@ async function carregarTema(){
     console.warn("Não foi possível carregar o tema por JSON. Mantendo padrão.", err);
   }
 }
-  // Funções do botão Download .APK
-  
-function ehAndroid(){
-  const ua = navigator.userAgent || "";
-  return /Android/i.test(ua);
-}
 
-function temParametroApp67(){
-  const params = new URLSearchParams(window.location.search);
-  return params.get("app") === "67" || window.location.search.includes("app-67");
-}
-
-function redirecionarAndroidParaApp67(){
-  if(!ehAndroid() || temParametroApp67()){
-    return;
-  }
-
-  const urlAtual = new URL(window.location.href);
-  urlAtual.searchParams.set("app", "67");
-  window.location.replace(urlAtual.toString());
-}
-
-function configurarBotaoApk(){
-  const botaoApk = document.getElementById("apkDownloadButton");
-  if(!botaoApk){
-    return;
-  }
-
-  if(ehAndroid() && temParametroApp67()){
-    botaoApk.style.display = "inline-block";
-  }
-}
-
-redirecionarAndroidParaApp67();
-configurarBotaoApk();
-
-
-
-  
 function aplicarTema(colors){
   const root = document.documentElement;
   root.style.setProperty("--body-bg", colors.bodyBg || "#f4f4f4");
@@ -228,7 +215,38 @@ function aplicarTema(colors){
   root.style.setProperty("--link", colors.link || "#ff4d4d");
 }
 
+async function carregarRodape(){
+  try{
+    const resp = await fetch("rodape-info.json");
+    const cfg = await resp.json();
+    
+    if(cfg.showCopyright){
+      document.getElementById("copyright").textContent = "© 2026 Vicente Bajay - Todos os direitos reservados";
+    }
+    
+    if(cfg.showSocialMedia && cfg.redesSociais){
+      const container = document.getElementById("redes-sociais");
+      const redes = cfg.redesSociais;
+      
+      if(redes.youtube){
+        container.innerHTML += `<a href="${redes.youtube.url}" target="_blank" title="YouTube"><img src="${redes.youtube.icone}" alt="YouTube"></a>`;
+      }
+      
+      if(redes.paginaPessoal){
+        container.innerHTML += `<a href="${redes.paginaPessoal.url}" target="_blank" title="Página Pessoal"><img src="${redes.paginaPessoal.imagem}" class="perfil-img" alt="Página"></a>`;
+      }
+      
+      if(redes.github){
+        container.innerHTML += `<a href="${redes.github.url}" target="_blank" title="GitHub"><img src="${redes.github.icone}" alt="GitHub"></a>`;
+      }
+    }
+  }catch(err){
+    console.warn("Não foi possível carregar informações do rodapé", err);
+  }
+}
+
 carregarTema();
+carregarRodape();
 
 fetch("produtos.json")
 .then(r=>r.json())
