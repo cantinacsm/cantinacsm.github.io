@@ -4,165 +4,129 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Cantina APP</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='24' font-size='24'>🍽️</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='24' font-size='24'>🍽️</text></svg>">
 <style>
 
 :root{
-  --body-bg:#f4f4f4;
-  --header-bg:#d60000;
-  --header-text:#ffffff;
-  --footer-bg:#111111;
-  --footer-text:#ffffff;
-  --accent:#d60000;
-  --accent-text:#ffffff;
-  --card-bg:#ffffff;
-  --card-text:#141414;
-  --muted-text:#4b4b4b;
-  --shadow:rgba(0,0,0,.12);
-  --link:#ff4d4d;
+--body-bg:#f4f4f4;
+--header-bg:#d60000;
+--header-text:#ffffff;
+--footer-bg:#111111;
+--footer-text:#ffffff;
+--accent:#d60000;
+--accent-text:#ffffff;
+--card-bg:#ffffff;
+--card-text:#141414;
+--muted-text:#4b4b4b;
+--shadow:rgba(0,0,0,.12);
+--link:#ff4d4d;
 }
 
 body{
-  margin:0;
-  font-family:Arial, Helvetica, sans-serif;
-  background:var(--body-bg);
-  color:var(--card-text);
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background:var(--body-bg);
+color:var(--card-text);
+min-height:100vh;
+display:flex;
+flex-direction:column;
 }
 
 /* HEADER */
 header{
-  background:var(--header-bg);
-  color:var(--header-text);
-  padding:18px;
-  text-align:center;
-  font-size:22px;
-  font-weight:bold;
+background:var(--header-bg);
+color:var(--header-text);
+padding:18px;
+text-align:center;
+font-size:22px;
+font-weight:bold;
 }
 
 /* AREA PRINCIPAL */
 main{
-  flex:1;
+flex:1;
 }
 
 /* GRID */
 #produtos{
-  padding:15px;
-  display:grid;
-  grid-template-columns:1fr;
-  gap:15px;
-  max-width:1100px;
-  margin:auto;
+padding:15px;
+display:grid;
+grid-template-columns:1fr;
+gap:15px;
+max-width:1100px;
+margin:auto;
 }
 
 @media(min-width:700px){
-  #produtos{
-    grid-template-columns:repeat(2,1fr);
-  }
+#produtos{
+grid-template-columns:repeat(2,1fr);
+}
 }
 
 @media(min-width:1000px){
-  #produtos{
-    grid-template-columns:repeat(3,1fr);
-  }
+#produtos{
+grid-template-columns:repeat(3,1fr);
+}
 }
 
 /* CARD MENOR */
 .card{
-  background:var(--card-bg);
-  border-radius:12px;
-  box-shadow:0 2px 8px var(--shadow);
-  overflow:hidden;
+background:var(--card-bg);
+border-radius:12px;
+box-shadow:0 2px 8px var(--shadow);
+overflow:hidden;
 }
 
 .card img{
-  width:100%;
-  height:150px;
-  object-fit:cover;
+width:100%;
+height:150px;
+object-fit:cover;
 }
 
 .card-content{
-  padding:10px;
+padding:10px;
 }
 
 .nome{
-  font-size:16px;
-  font-weight:bold;
+font-size:16px;
+font-weight:bold;
 }
 
 .preco{
-  color:var(--accent);
-  margin:6px 0;
+color:var(--accent);
+margin:6px 0;
 }
 
 button{
-  width:100%;
-  border:none;
-  background:var(--accent);
-  color:var(--accent-text);
-  padding:10px;
-  border-radius:8px;
-  cursor:pointer;
+width:100%;
+border:none;
+background:var(--accent);
+color:var(--accent-text);
+padding:10px;
+border-radius:8px;
+cursor:pointer;
 }
 
 /* FOOTER FIXO */
 footer{
-  background:var(--footer-bg);
-  color:var(--footer-text);
-  text-align:center;
-  padding:14px;
+background:var(--footer-bg);
+color:var(--footer-text);
+text-align:center;
+padding:14px;
 }
 
 footer a{
-  color:var(--link);
-  text-decoration:none;
-  font-weight:bold;
+color:var(--link);
+text-decoration:none;
+font-weight:bold;
 }
-
 .footer-content{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  align-items:flex-start;
-  padding-left:30px;
+display:flex;
+flex-direction:column;
+gap:10px;
+align-items:center;
 }
-
-.social-media{
-  display:flex;
-  gap:15px;
-  margin-top:5px;
-}
-
-.social-media a{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  width:36px;
-  height:36px;
-  border-radius:50%;
-  background:var(--accent);
-  transition:opacity 0.3s;
-}
-
-.social-media a:hover{
-  opacity:0.8;
-}
-
-.social-media img{
-  width:20px;
-  height:20px;
-  filter:invert(1);
-}
-
-.social-media .perfil-img{
-  width:36px;
-  height:36px;
-  border-radius:50%;
-  object-fit:cover;
-}
-
+  
 </style>
 </head>
 
@@ -171,108 +135,77 @@ footer a{
 <header>Cantina APP</header>
 
 <main>
-<p style="text-align:left; padding:15px; padding-left:30px; font-size:18px;">Escolha um produto abaixo:</p>
 <div id="produtos"></div>
 </main>
 
 <footer>
-  <div class="footer-content">
-    <div>Desenvolvedor: ViquinhoDev</div>
-    <div id="copyright"></div>
-    <div id="redes-sociais" class="social-media"></div>
-  </div>
+<div class="footer-content">
+<a id="apkDownloadButton" class="apk-button" href="cantinaAPP.apk" download>
+Baixar .APK (CantinaAPP)
+</a>
+<div>Desenvolvedor: ViquinhoDev ( Vicente Bajay )</div>
+</div>
 </footer>
 
 <script>
 async function carregarTema(){
-  try{
-    const cfgResponse = await fetch("styles/theme-config.json");
-    const cfg = await cfgResponse.json();
+try{
+const cfgResponse = await fetch("styles/theme-config.json");
+const cfg = await cfgResponse.json();
 
-    const temaAtivo = cfg.activeTheme || "default-theme.json";
-    const temaResponse = await fetch(`styles/${temaAtivo}`);
-    const tema = await temaResponse.json();
+const temaAtivo = cfg.activeTheme || "default-theme.json";
+const temaResponse = await fetch(`styles/${temaAtivo}`);
+const tema = await temaResponse.json();
 
-    aplicarTema(tema.colors || {});
-  }catch(err){
-    console.warn("Não foi possível carregar o tema por JSON. Mantendo padrão.", err);
-  }
+aplicarTema(tema.colors || {});
+}catch(err){
+console.warn("Não foi possível carregar o tema por JSON. Mantendo padrão.", err);
+}
 }
 
 function aplicarTema(colors){
-  const root = document.documentElement;
-  root.style.setProperty("--body-bg", colors.bodyBg || "#f4f4f4");
-  root.style.setProperty("--header-bg", colors.headerBg || "#d60000");
-  root.style.setProperty("--header-text", colors.headerText || "#ffffff");
-  root.style.setProperty("--footer-bg", colors.footerBg || "#111111");
-  root.style.setProperty("--footer-text", colors.footerText || "#ffffff");
-  root.style.setProperty("--accent", colors.accent || "#d60000");
-  root.style.setProperty("--accent-text", colors.accentText || "#ffffff");
-  root.style.setProperty("--card-bg", colors.cardBg || "#ffffff");
-  root.style.setProperty("--card-text", colors.cardText || "#141414");
-  root.style.setProperty("--muted-text", colors.mutedText || "#4b4b4b");
-  root.style.setProperty("--shadow", colors.shadow || "rgba(0,0,0,.12)");
-  root.style.setProperty("--link", colors.link || "#ff4d4d");
-}
-
-async function carregarRodape(){
-  try{
-    const resp = await fetch("rodape-info.json");
-    const cfg = await resp.json();
-    
-    if(cfg.showCopyright){
-      document.getElementById("copyright").textContent = "© 2026 Vicente Bajay - Todos os direitos reservados";
-    }
-    
-    if(cfg.showSocialMedia && cfg.redesSociais){
-      const container = document.getElementById("redes-sociais");
-      const redes = cfg.redesSociais;
-      
-      if(redes.youtube){
-        container.innerHTML += `<a href="${redes.youtube.url}" target="_blank" title="YouTube"><img src="${redes.youtube.icone}" alt="YouTube"></a>`;
-      }
-      
-      if(redes.paginaPessoal){
-        container.innerHTML += `<a href="${redes.paginaPessoal.url}" target="_blank" title="Página Pessoal"><img src="${redes.paginaPessoal.imagem}" class="perfil-img" alt="Página"></a>`;
-      }
-      
-      if(redes.github){
-        container.innerHTML += `<a href="${redes.github.url}" target="_blank" title="GitHub"><img src="${redes.github.icone}" alt="GitHub"></a>`;
-      }
-    }
-  }catch(err){
-    console.warn("Não foi possível carregar informações do rodapé", err);
-  }
+const root = document.documentElement;
+root.style.setProperty("--body-bg", colors.bodyBg || "#f4f4f4");
+root.style.setProperty("--header-bg", colors.headerBg || "#d60000");
+root.style.setProperty("--header-text", colors.headerText || "#ffffff");
+root.style.setProperty("--footer-bg", colors.footerBg || "#111111");
+root.style.setProperty("--footer-text", colors.footerText || "#ffffff");
+root.style.setProperty("--accent", colors.accent || "#d60000");
+root.style.setProperty("--accent-text", colors.accentText || "#ffffff");
+root.style.setProperty("--card-bg", colors.cardBg || "#ffffff");
+root.style.setProperty("--card-text", colors.cardText || "#141414");
+root.style.setProperty("--muted-text", colors.mutedText || "#4b4b4b");
+root.style.setProperty("--shadow", colors.shadow || "rgba(0,0,0,.12)");
+root.style.setProperty("--link", colors.link || "#ff4d4d");
 }
 
 carregarTema();
-carregarRodape();
 
 fetch("produtos.json")
 .then(r=>r.json())
 .then(produtos=>{
 
-  const area=document.getElementById("produtos");
+const area=document.getElementById("produtos");
 
-  produtos.forEach(p=>{
+produtos.forEach(p=>{
 
-    area.innerHTML+=`
-      <div class="card">
-        <img src="${p.imagem}" alt="${p.nome}">
-        <div class="card-content">
-          <div class="nome">${p.nome}</div>
-          <div class="preco">R$ ${p.preco.toFixed(2)}</div>
+area.innerHTML+=`
+<div class="card">
+<img src="${p.imagem}" alt="${p.nome}">
+<div class="card-content">
+<div class="nome">${p.nome}</div>
+<div class="preco">R$ ${p.preco.toFixed(2)}</div>
 
-          <button onclick="
-            location.href='lanches/lanche.html?id:${p.id}'
-          ">
-            Comprar
-          </button>
-        </div>
-      </div>
-    `;
+<button onclick="
+location.href='lanches/lanche.html?id:${p.id}'
+">
+Comprar
+</button>
+</div>
+</div>
+`;
 
-  });
+});
 
 });
 
