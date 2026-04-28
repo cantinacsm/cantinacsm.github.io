@@ -1,0 +1,17 @@
+  "showCopyright": true,
+  "showSocialMedia": true,
+  "redesSociais": {
+    "youtube": {
+      "url": "https://youtube.com/@ViquinhoDev",
+      "icone": "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg"
+    },
+    "paginaPessoal": {
+      "url": "https://viquinhodev.github.io",
+      "imagem": "profile.jpg"
+    },
+    "github": {
+      "url": "https://github.com/ViquinhoDev",
+      "icone": "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg"
+    }
+  }
+}
